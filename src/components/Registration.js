@@ -34,14 +34,20 @@ class Registration extends Component {
 
   handleFirstSteep = () => {
     if (!this.state.passangerName) {
-      this.setState({ error: "You must provide a Name" });
+      this.setState({ error: "You must provide a Name or skip this steep" });
     }
+  };
+
+  handleSecondSteep = () => {
+    this._skip();
   };
 
   saveFormData = currentStep => {
     switch (currentStep) {
       case 1:
         this.handleFirstSteep();
+      case 2:
+        this.handleSecondSteep();
       default:
         break;
     }
