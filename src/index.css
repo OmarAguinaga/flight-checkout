@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+body {
+  color: #353b48;
+  font-family: sans-serif;
+  background: #de6262; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffb88c,
+    #de6262
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffb88c,
+    #de6262
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+  max-width: 90vw;
+  margin: 20px auto;
+  min-height: calc(100vh - 40px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration__form {
+  width: 70vw;
+  min-height: 50vh;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.registration__controlls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.registration__controlls button {
+  padding: 5px 10px;
+}
+
+.user-form {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plane {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 40px);
+  grid-template-rows: repeat(2, 40px);
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.plane__seat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  background: #de6262;
+}
