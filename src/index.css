@@ -43,17 +43,54 @@ body {
 }
 
 .registration__form {
-  width: 70vw;
-  min-height: 50vh;
+  min-width: 50vw;
+  min-height: 30vh;
   border-radius: 10px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.form__instructions {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.registration__form h3 {
+  color: #de6262;
+  font-size: 1rem;
+}
+
+.error {
+  color: #de6262;
+  font-size: 0.8rem;
+}
+
+.user__form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__input {
+  height: 2em;
+  font-size: 1em;
+  margin: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #eb3349;
+  color: #757575;
+  flex-grow: 5;
 }
 
 .registration__controlls {
+  margin-top: 30px;
+  font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
 }
@@ -86,4 +123,67 @@ body {
   cursor: pointer;
   color: #fff;
   background: #de6262;
+}
+
+.info {
+  border-top: 1px solid #de6262;
+  padding: 15px 5px 0 5px;
+  max-width: 40vw;
+  font-size: 0.8rem;
+}
+
+.info span {
+  color: #de6262;
+}
+
+.seat__info {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.extra__info {
+  margin-top: 10px;
+}
+
+.checkout__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 40vw;
+}
+
+.flight-info div,
+.flight__total div {
+  min-width: 40vw;
+  max-width: 40vw;
+  padding: 5px;
+  margin-top: 10px;
+  border-bottom: 1px solid #de6262;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flight__total {
+  margin-top: 30px;
+}
+
+.btn__order {
+  margin-top: 30px;
+  padding: 10px 15px;
+  border: 1px solid #de6262;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.btn__order:hover {
+  color: #fff;
+  background: #de6262;
+}
+
+.user__greeting {
+  color: #de6262;
+  font-size: 1.3rem;
+  margin-top: 20px;
 }

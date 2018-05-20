@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import _ from "lodash";
 
 import UserForm from "./UserForm";
 import FlightForm from "./FlightForm";
+import CheckoutForm from "./CheckoutForm";
 import flightSeats from "./../data";
 
 class Registration extends Component {
@@ -10,11 +12,13 @@ class Registration extends Component {
     currentStep: 1,
     passangerName: "",
     error: null,
-    selectedSeat: []
+    selectedSeat: {},
+    randomSeat: false
   };
   showSeatInfo = seat => {
-    const selectedSeat = flightSeats.filter(s => s.seatNumber === seat);
-    this.setState({ selectedSeat });
+    const selectedSeat = flightSeats.filter(s => s.seatNumber === seat)[0];
+    console.log(selectedSeat);
+    this.setState({ selectedSeat, randomSeat: false });
   };
 
   handleSubmit = e => {
@@ -43,6 +47,25 @@ class Registration extends Component {
     }
   };
 
+  selectRandomSeat = () => {
+    const { flightSeats } = this.state;
+    const freeSeats = flightSeats.filter(s => s.price === 0);
+    let i, randomSeat;
+
+    /** select a free seat if possible if not then select any seat, this does not make
+     * distintion between $5 and $10. If I had more time it might
+     **/
+    if (freeSeats.length) {
+      i = Math.floor(Math.random() * freeSeats.length);
+      randomSeat = freeSeats[i];
+    } else {
+      i = Math.floor(Math.random() * flightSeats.length);
+      randomSeat = flightSeats[i];
+    }
+    this.setState({ selectedSeat: randomSeat, randomSeat: true });
+    console.log(randomSeat);
+  };
+
   _next = async () => {
     let { currentStep } = this.state;
     this.setState({ error: null });
@@ -55,7 +78,12 @@ class Registration extends Component {
 
   _skip = () => {
     this.setState({ error: null });
-    let { currentStep } = this.state;
+    let { currentStep, selectedSeat } = this.state;
+
+    if (currentStep === 2 && _.isEmpty(selectedSeat)) {
+      this.selectRandomSeat();
+    }
+
     currentStep >= 2 ? (currentStep = 3) : currentStep++;
     this.setState({ currentStep });
   };
@@ -69,38 +97,48 @@ class Registration extends Component {
   render() {
     return (
       <div className="registration__form">
-        <div>
+        <Fragment>
           {(() => {
             switch (this.state.currentStep) {
               case 1:
                 return (
-                  <div>
+                  <Fragment>
                     <h3>Steep 1 of 3</h3>
                     <UserForm
                       handleChange={this.handleChange}
                       passangerName={this.state.passangerName}
+                      handleSubmit={this.handleSubmit}
                     />
-                  </div>
+                  </Fragment>
                 );
               case 2:
                 return (
-                  <div>
+                  <Fragment>
                     <h3>Steep 2 of 3</h3>
                     <FlightForm
                       showSeatInfo={this.showSeatInfo}
                       flightSeats={this.state.flightSeats}
                       selectedSeat={this.state.selectedSeat}
                     />
-                  </div>
+                  </Fragment>
                 );
               case 3:
-                return <h3>Steep 3 of 3</h3>;
+                return (
+                  <Fragment>
+                    <h3>Steep 3 of 3</h3>
+                    <CheckoutForm
+                      passangerName={this.state.passangerName}
+                      selectedSeat={this.state.selectedSeat}
+                      randomSeat={this.state.randomSeat}
+                    />
+                  </Fragment>
+                );
               default:
                 null;
             }
           })()}
-        </div>
-        {this.state.error && <p>{this.state.error}</p>}
+        </Fragment>
+        {this.state.error && <p className="error">{this.state.error}</p>}
         <div className="registration__controlls">
           <button onClick={this._prev}>Prev</button>
           <button onClick={this._skip}>Skip</button>
