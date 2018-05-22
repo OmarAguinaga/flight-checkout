@@ -49,7 +49,7 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   background: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -125,6 +125,16 @@ body {
   background: #de6262;
 }
 
+.not-available {
+  background: #757575;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.selected-seat {
+  background: #ffb88c;
+}
+
 .info {
   border-top: 1px solid #de6262;
   padding: 15px 5px 0 5px;
@@ -186,4 +196,9 @@ body {
   color: #de6262;
   font-size: 1.3rem;
   margin-top: 20px;
+}
+
+.thankyou {
+  display: flex;
+  justify-content: center;
 }

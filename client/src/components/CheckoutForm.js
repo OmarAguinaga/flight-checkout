@@ -15,7 +15,7 @@ class CheckoutForm extends Component {
         <div className="flight-info">
           <div>
             <span>Seat Number: </span>
-            {selectedSeat.seatNumber}
+            {selectedSeat.number}
           </div>
           <div>
             <span>Seat Location: </span>
@@ -34,7 +34,9 @@ class CheckoutForm extends Component {
           </div>
         </div>
 
-        <button className="btn__order">Check Out</button>
+        <button className="btn__order" onClick={this.props.checkinConfirmation}>
+          Check Out
+        </button>
       </div>
     );
   }

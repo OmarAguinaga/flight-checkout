@@ -10,10 +10,12 @@ class FlightForm extends Component {
         <div className="plane">
           {flightSeats.map(seat => (
             <button
-              key={seat.seatNumber}
-              onClick={() => showSeatInfo(seat.seatNumber)}
+              key={seat._id}
+              onClick={() => showSeatInfo(seat._id)}
               value={seat.price}
-              className="plane__seat"
+              className={`plane__seat
+              ${seat.available ? "" : "not-available"}
+              ${selectedSeat._id === seat._id ? "selected-seat" : ""}`}
             >
               ${seat.price}
             </button>
@@ -27,7 +29,7 @@ class FlightForm extends Component {
               </p>
               <p>
                 <span>Seat Number: </span>
-                {selectedSeat.seatNumber}
+                {selectedSeat.number}
               </p>
             </div>
             <p className="extra__info">

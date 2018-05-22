@@ -15,10 +15,12 @@ const SeatSchema = new Schema({
     default: true
   },
   location: {
-    type: String
+    type: String,
+    required: [true, "The location is required"]
   },
   price: {
-    type: Number
+    type: Number,
+    default: 0
   }
 });
 

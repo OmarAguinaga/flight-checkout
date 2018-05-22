@@ -43,9 +43,9 @@ router.put("/seat/:id", async (req, res, next) => {
   }
 });
 
-// router.delete("/seat/:id", async (req, res, next) => {
-//   const seat = await seat.findByIdAndRemove({ _id: req.params.id });
-//   res.send(seat);
-// });
+router.delete("/seat/:id", async (req, res, next) => {
+  const seat = await Seat.findByIdAndRemove({ _id: req.params.id });
+  res.send(seat);
+});
 
 module.exports = router;

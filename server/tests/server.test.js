@@ -4,7 +4,7 @@ const request = require("supertest");
 const { app } = require("./../index");
 const { Seat } = require("./../models/seat");
 
-describe("GET /api/seat", () => {
+describe("GET /api/seat/random", () => {
   it("shoudl return only one available random seat", done => {
     request(app)
       .get("/api/seat/random")

@@ -8,9 +8,19 @@ To run this project download or clone the repository to your machine
 
 `git clone https://github.com/OmarAguinaga/flight-checkout.git`
 
-`npm install`
+got to the folder and do
 
-`npm start`
+`npm run setup`
+
+inside that same folder run
+
+`npm run start:dev`
+
+## Tests
+
+I only have one test, to test if the API returns a random available seat.
+
+`npm run test`
 
 ## The Application
 
@@ -32,3 +42,19 @@ Because of the time given it was difficult to implement proper tests for this ap
 ## Styling
 
 All the styling was done using CSS and trying to implement BEM structure, another steep of this application if I had more time would be to replace CSS with styled components
+
+## The API
+
+GET "/seat" - Get all the seats, available and unavailable
+GET "/seat/random" - Get a random seat from the available seats
+PUT "/seat/:id" - Modify an existing seat (used to reserve a seat on the client)
+POST "/seat" - Create a new seat (not used on the client)
+DELETE "/seat/:id" - Delete a seat (not used on the client)
+
+For this part of the challenge, as for the one before I was not able to implement the feature to reserve the seat from 3 minutes until they pay.
+
+I used MongoDB with mongoose and deployed the DB on mLab. The database currently has some data and is ready to use.
+
+## The Sack
+
+MongoDB · Node.js · Express · React
