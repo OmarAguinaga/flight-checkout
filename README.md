@@ -45,11 +45,11 @@ All the styling was done using CSS and trying to implement BEM structure, anothe
 
 ## The API
 
-GET "/seat" - Get all the seats, available and unavailable
-GET "/seat/random" - Get a random seat from the available seats
-PUT "/seat/:id" - Modify an existing seat (used to reserve a seat on the client)
-POST "/seat" - Create a new seat (not used on the client)
-DELETE "/seat/:id" - Delete a seat (not used on the client)
+* GET "/seat" - Get all the seats, available and unavailable
+* GET "/seat/random" - Get a random seat from the available seats
+* PUT "/seat/:id" - Modify an existing seat (used to reserve a seat on the client)
+* POST "/seat" - Create a new seat (not used on the client)
+* DELETE "/seat/:id" - Delete a seat (not used on the client)
 
 For this part of the challenge, as for the one before I was not able to implement the feature to reserve the seat from 3 minutes until they pay.
 
