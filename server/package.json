@@ -1,0 +1,22 @@
+{
+  "name": "rest-api-playlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.1"
+  },
+  "devDependencies": {
+    "expect": "^22.4.3",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  }
+}
